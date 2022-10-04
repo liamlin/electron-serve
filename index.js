@@ -35,8 +35,10 @@ module.exports = options => {
 
 	options.directory = path.resolve(electron.app.getAppPath(), options.directory);
 
+	const rootUrl = `index.html${options.search ? `?${options.search}` : ''}`
+
 	const handler = async (request, callback) => {
-		const indexPath = path.join(options.directory, 'index.html');
+		const indexPath = path.join(options.directory, rootUrl);
 		const filePath = path.join(options.directory, decodeURIComponent(new URL(request.url).pathname));
 		const resolvedPath = await getPath(filePath);
 		const fileExtension = path.extname(filePath);

@@ -29,6 +29,12 @@ declare namespace electronServe {
 		@default electron.session.defaultSession
 		*/
 		partition?: string;
+
+		/**
+		Query strings to append after `index.html`
+
+		 */
+		search?: string;
 	}
 
 	/**
